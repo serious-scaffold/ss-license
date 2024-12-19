@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":enablePreCommit"
+  ],
+  "automergeType": "pr",
+  "automergeStrategy": "merge-commit",
+  "ignoreScripts": false,
+  "platformAutomerge": false,
+  "packageRules": [
+    {
+      "automerge": true,
+      "addLabels": [
+        "auto-approval"
+      ],
+      "extends": [
+        "schedule:earlyMondays",
+        "schedule:automergeMonthly"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ]
+    },
+    {
+      "description": "Group renovate docker tag and pre-commit-hooks tag",
+      "groupName": "renovate group",
+      "addLabels": [
+        "renovate"
+      ],
+      "matchDatasources": [
+        "docker",
+        "github-tags"
+      ],
+      "matchDepNames": [
+        "ghcr.io/renovatebot/renovate",
+        "renovate/renovate",
+        "renovatebot/pre-commit-hooks"
+      ]
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-runners",
+      "depTypeTemplate": "github-runner",
+      "description": "Match GitHub runner defined in GitHub Actions matrix strategy",
+      "fileMatch": [
+        "^\\.github/workflows/.+\\.yml$"
+      ],
+      "matchStringsStrategy": "recursive",
+      "matchStrings": [
+        "[-:] (.*) # renovate: github-runner",
+        "(?<depName>ubuntu|windows|macos)-(?<currentValue>[\\d\\.\\-\\w]+)"
+      ],
+      "versioningTemplate": "docker"
+    }
+  ]
+}
