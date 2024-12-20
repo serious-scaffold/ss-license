@@ -5,7 +5,7 @@
 The shared serious scaffold template to include license generation template.
 
 [![License](https://img.shields.io/github/license/serious-scaffold/ss-license)](https://github.com/serious-scaffold/ss-license/blob/master/LICENSE)
-[![SS Badge](https://img.shields.io/badge/Serious%20Scaffold-cmake-blue)](https://github.com/serious-scaffold/ss-license)
+[![SS Badge](https://img.shields.io/badge/Serious%20Scaffold-meta-blue)](https://github.com/serious-scaffold/ss-license)
 
 [![CI](https://github.com/serious-scaffold/ss-license/actions/workflows/ci.yml/badge.svg)](https://github.com/serious-scaffold/ss-license/actions/workflows/ci.yml)
 [![Renovate](https://github.com/serious-scaffold/ss-license/actions/workflows/renovate.yml/badge.svg)](https://github.com/serious-scaffold/ss-license/actions/workflows/renovate.yml)
