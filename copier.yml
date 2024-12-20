@@ -14,7 +14,3 @@ _envops:
   variable_start_string: '[[['
 
 _answers_file: .copier-answers.ss-license.yml
-
-# Skip files which are most possible to custom.
-_skip_if_exists:
-  - vcpkg.json.jinja
